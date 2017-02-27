@@ -1,0 +1,2064 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>仿小米官网@zhang</title>
+<script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/xiaomi@zhang.css"/>
+<script>
+	$(function(){
+		
+		
+		
+		
+		//css优化
+		//$('.idol_box_foru').css('height','358px');
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//loading 函数  for cart!
+		//var index1,index2;
+		function loading_class(index1,index2){   //index1=cart_loading  index2=headerNav_part2_cart
+			$('.'+index1).hide();
+			var timer; 
+			$('.'+index2).hover(function(){
+				clearTimeout(timer);
+					$('.'+index1).slideDown('fast');
+				},function(){
+					timer=setTimeout(function () {
+			$('.'+index1).slideUp();;
+			}, 700);
+					})
+			$('.'+index1).hover(function(){
+				clearTimeout(timer);
+				},function(){
+						timer=setTimeout(function () {
+					$('.'+index1).slideUp('fast');;
+					}, 700);
+				});
+			}
+		loading_class('cart_loading','headerNav_part2_cart');
+		
+		
+		//对搜索下拉框top,left进行定位  search_input
+		function setSearch_top_left(){
+			//var left = $('.search_input').position().left;
+			//var top = $('.search_input').position().top;
+			var left = $('.search_input').offset().left;
+			var top = $('.search_input').offset().top;
+		$('.search_hidden').css({
+			'left':(left)+'px',
+			'top':(top+50)+'px'
+			})
+			}
+		setSearch_top_left();
+		//轮播图
+
+		function RunImg(){
+			var select_Index = 1;
+			$('.contNav2_select li').eq('0').css('background','#fff');
+			timer=setInterval(function(){
+				if(select_Index!='4')
+			{
+				$('.contNav2_RunImg li').eq(select_Index).show().siblings().hide();
+				$('.contNav2_select li').eq(select_Index).css('background','#fff').siblings().css('background','#666');
+				select_Index++;
+				}else{
+				$('.contNav2_RunImg li').eq(select_Index).show().siblings().hide();
+				$('.contNav2_select li').eq(select_Index).css('background','#fff').siblings().css('background','#666');
+				select_Index=0;
+					}
+				
+				},4000)
+				
+				//点击select时触发
+				$('#contNav2_select_1').click(function(){
+					$(this).css('background','#fff').siblings().css('background','#666');
+				$('.contNav2_RunImg li').eq(0).show().siblings().hide();
+					select_Index=0;
+					})
+				$('#contNav2_select_2').click(function(){
+					$(this).css('background','#fff').siblings().css('background','#666');
+					$('.contNav2_RunImg li').eq(1).show().siblings().hide();
+					select_Index=1;
+					})
+				$('#contNav2_select_3').click(function(){
+					$(this).css('background','#fff').siblings().css('background','#666');
+					$('.contNav2_RunImg li').eq(2).show().siblings().hide();
+					select_Index=2;
+					})
+				$('#contNav2_select_4').click(function(){
+					$(this).css('background','#fff').siblings().css('background','#666');
+					$('.contNav2_RunImg li').eq(3).show().siblings().hide();
+					select_Index=3;
+					})
+				$('#contNav2_select_5').click(function(){
+					$(this).css('background','#fff').siblings().css('background','#666');
+					$('.contNav2_RunImg li').eq(4).show().siblings().hide();
+					select_Index=4;
+					})	
+			}
+		RunImg();
+		//hover		
+		
+		//
+		
+		function loading_class2(index1,index2){   //index1=cart_loading  index2=headerNav_part2_cart
+			$('.'+index1).hide();
+			var timer; 
+			$('.'+index2).hover(function(){
+				clearTimeout(timer);
+					$('.'+index1).slideDown('fast');
+				},function(){
+					timer=setTimeout(function () {
+			$('.'+index1).slideUp();;
+			}, 700);
+					})
+			$('.'+index1).hover(function(){
+				clearTimeout(timer);
+				},function(){
+						timer=setTimeout(function () {
+					$('.'+index1).slideUp('fast');;
+					}, 700);
+				});
+			}
+		
+		loading_class2('search_hidden','search_input');
+		
+		
+		
+		
+		//No2.loading  contNav_loading  for id
+		function loading_id(index3,index4,timer,hideFirst){   //index1=cart_loading  index2=headerNav_part2_cart
+			$('.'+hideFirst).hide();
+			$('.'+index4).hover(function(){
+				clearTimeout(timer);
+					$('.'+hideFirst).hide();
+					$('#'+index3).show();
+				},function(){
+					timer=setTimeout(function () {
+			$('#'+index3).slideUp();;
+			}, 1000);
+					})
+			$('#'+index3).hover(function(){
+				clearTimeout(timer);
+				},function(){
+						timer=setTimeout(function () {
+					$('#'+index3).slideUp('fast');;
+					}, 1000);
+				});
+			}
+		//TopNav部分
+		loading_id('contNav_L1','contNav1_center_part1','timer2','contNav_loading');
+		loading_id('contNav_L2','contNav1_center_part2','timer3','contNav_loading');
+		loading_id('contNav_L3','contNav1_center_part3','timer4','contNav_loading');
+		loading_id('contNav_L4','contNav1_center_part4','timer5','contNav_loading');
+		loading_id('contNav_L5','contNav1_center_part5','timer6','contNav_loading');
+		loading_id('contNav_L6','contNav1_center_part6','timer7','contNav_loading');
+		loading_id('contNav_L7','contNav1_center_part7','timer8','contNav_loading');
+		
+		//leftNav部分
+		loading_id('leftNav_L1','leftNav_part1','timer9','leftNav_loading');
+		loading_id('leftNav_L2','leftNav_part2','timer10','leftNav_loading');
+		loading_id('leftNav_L3','leftNav_part3','timer11','leftNav_loading');
+		loading_id('leftNav_L4','leftNav_part4','timer12','leftNav_loading');
+		loading_id('leftNav_L5','leftNav_part5','timer13','leftNav_loading');
+		loading_id('leftNav_L6','leftNav_part6','timer14','leftNav_loading');
+		loading_id('leftNav_L7','leftNav_part7','timer15','leftNav_loading');
+		loading_id('leftNav_L8','leftNav_part8','timer16','leftNav_loading');
+		loading_id('leftNav_L9','leftNav_part9','timer17','leftNav_loading');
+		loading_id('leftNav_L10','leftNav_part10','timer18','leftNav_loading');
+
+		//search焦点时
+		/*$('.contNav1_right input[type=text]').focus(function(){
+			$(this).css('border','1px solid #ff6700');
+			});*/
+		//搭配、配件、周边部分
+		$('#idol_box03_u1').show();
+		$('.idol_box3_selectAll_a1').css({
+			'color':'#ff6700',
+			'border-bottom':'2px solid #ff6700'
+			});
+		$('#idol_box03_u5').show();
+		$('.idol_box3_selectAll_a5').css({
+			'color':'#ff6700',
+			'border-bottom':'2px solid #ff6700'
+			});	
+		$('#idol_box03_u9').show();
+		$('.idol_box3_selectAll_a9').css({
+			'color':'#ff6700',
+			'border-bottom':'2px solid #ff6700'
+			});
+				function loading_id2(index3,index4){   //index1=cart_loading  index2=headerNav_part2_cart
+			$('.'+index4).hover(function(){
+					$('#'+index3).show().siblings().hide();
+				});
+			}
+
+		
+		loading_id2('idol_box03_u1','idol_box3_selectAll_a1');
+		loading_id2('idol_box03_u2','idol_box3_selectAll_a2');	
+		loading_id2('idol_box03_u3','idol_box3_selectAll_a3');
+		loading_id2('idol_box03_u4','idol_box3_selectAll_a4');
+		loading_id2('idol_box03_u5','idol_box3_selectAll_a5');
+		loading_id2('idol_box03_u6','idol_box3_selectAll_a6');	
+		loading_id2('idol_box03_u7','idol_box3_selectAll_a7');
+		loading_id2('idol_box03_u8','idol_box3_selectAll_a8');	
+		loading_id2('idol_box03_u9','idol_box3_selectAll_a9');
+		loading_id2('idol_box03_u10','idol_box3_selectAll_a10');	
+		loading_id2('idol_box03_u11','idol_box3_selectAll_a11');
+		loading_id2('idol_box03_u12','idol_box3_selectAll_a12');
+		loading_id2('idol_box03_u13','idol_box3_selectAll_a13');
+		
+		
+		//明星单品左右移动
+		function idol_box1(){
+		$('.idol_box1_moveL').css('color','#ccc');
+		$('.idol_box1_moveR').click(function(){
+				$('.idol_box1_moveR').css('color','#ccc');     //css转换
+				$('.idol_box1_moveL').css('color','#000');     //css转换
+				var box1_moveL1 = $('#box1_cart1').position().left;
+				var box1_moveL2 = $('#box1_cart2').position().left;   //idol_box1_cont_u1 idol_box1_cont_u2  2ul
+				$('.idol_box1_cont').animate({left:"-1226px"},'fast');   //隐藏之后为0				
+			});
+		$('.idol_box1_moveL').click(function(){
+				$('.idol_box1_moveR').css('color','#000');     //css转换
+				$('.idol_box1_moveL').css('color','#CCC');     //css转换
+				var box1_moveL1 = $('#box1_cart1').position().left;
+				var box1_moveL2 = $('#box1_cart2').position().left;   //idol_box1_cont_u1 idol_box1_cont_u2  2ul
+				$('.idol_box1_cont').animate({left:"0px"},'fast');   //隐藏之后为0
+			});
+		}
+		idol_box1();
+		
+				function idol_box2(){
+		var index = 0;
+		$('.idol_box1_moveL2').css('color','#ccc');
+		$('.idol_box1_moveR2').click(function(){
+			if(index <3){
+				index+=1;
+				$('.idol_box1_moveL2').css('color','#666');     //css转换
+				LRhover();
+				$('.idol_box3_d3').animate({left:"-=1226px"},'fast');   //隐藏之后为0
+				
+				if(index==3){
+					$('.idol_box1_moveR2').css('color','#e0e0e0');     //css转换
+				LRhover();
+					}else{
+					$('.idol_box1_moveR2').css('color','#666');     //css转换
+				LRhover();
+						}				
+			}
+			});
+
+		
+
+			
+		$('.idol_box1_moveL2').click(function(){
+			if(index >0){
+				index-=1;
+				$('.idol_box1_moveR2').css('color','#666');     //css转换
+				LRhover();
+				$('.idol_box3_d3').animate({left:"+=1226px"},'fast');   //隐藏之后为0
+				if(index==0){
+					$('.idol_box1_moveL2').css('color','#e0e0e0');     //css转换
+				LRhover();
+					}else{
+					$('.idol_box1_moveL2').css('color','#666');     //css转换
+				LRhover();
+						}				
+				
+			}
+			});
+			
+			function LRhover(){
+			$('.idol_box1_moveLR a').hover(function(){
+				var thisColor ;
+					thisColor=$('.idol_box1_moveL2').css('color');
+			if(index>0&index<3){
+					$(this).css('color','#ff6700');     //css转换
+				}
+			},function(){
+					$(this).css('color',thisColor);     //css转换
+				});
+			}
+				
+	
+		}
+		idol_box2();
+		
+		
+		function timeQ1_timer(){
+		$('.idol_box1_moveR').css('color','#ccc');     //css转换
+		$('.idol_box1_moveL').css('color','#000');     //css转换
+		$('#idol_box1_cont_u1').hide();   //隐藏之后为0
+		$('#idol_box1_cont_u2').slideDown();
+
+			}
+		function timeQ2_timer(){
+		$('.idol_box1_moveR').css('color','#000');     //css转换
+		$('.idol_box1_moveL').css('color','#CCC');     //css转换
+		$('#idol_box1_cont_u2').show();   //隐藏之后为0
+		$('#idol_box1_cont_u1').show();
+	
+			}
+			
+			var	timeQ =setInterval(function(){
+						timeQ1_timer;
+						$('a').delay(3000);
+						timeQ2_timer;
+						$('a').delay(3000);
+			},3000);
+			
+		function FindAll(){
+			$('.idol_box2_FindAll').hover(function(){
+				$('.idol_box2_FindAll_a1').css('color','#ff6700');
+				$('.idol_box2_FindAll_a2').css('background-color','#ff6700');
+				},function(){
+				$('.idol_box2_FindAll_a1').css('color','#000');
+				$('.idol_box2_FindAll_a2').css('background-color','#ccc');
+					});
+			}
+			FindAll();
+			
+			
+			
+			function setThisUl(){
+				$('.idol_box3_selectAll a').hover(function(){
+					$(this).css({
+						'color':'#ff6700',
+						'border-bottom':'2px solid #ff6700'
+						});
+					$(this).siblings().css({
+						'color':'#000',
+						'border-bottom':'none'
+						});
+					$(this)
+					});
+				}
+			setThisUl();
+			
+			
+			
+		})
+</script>
+</head>
+
+<body>
+			<!--页眉部分-->
+     <div class="headerNav">
+      		<img src="../img/XiaoMi/topImg.jpg" style="width:100%;height:120px;"/>
+            <div class="headerNav_part1">
+            	<a class="headerNav_part1_first">小米商城</a>
+            	<a>MIUI</a>
+            	<a>米聊</a>
+            	<a>游戏</a>
+            	<a>多看阅读</a>
+            	<a>云服务</a>
+            	<a>金融</a>
+            	<a>小米商城移动版</a>
+            	<a>问题反馈</a>
+            	<a>Select Region</a>
+            </div>
+            <div class="headerNav_part2">
+            	<a class="headerNav_part2_a">登录</a>
+            	<a class="headerNav_part2_a">注册</a>
+            	<a class="headerNav_part2_a">消息通知</a>
+                <div class="headerNav_part2_cart">
+            		<a>购物车(<span>0</span>)</a>
+                </div>
+            </div>
+      </div>
+      		<!--页眉购物车部分-->
+	 <div class="cart_loading">
+     		<span>购物车中还没有商品，赶紧选购吧！</span>
+      </div>
+      		<!--页眉centerNav部分-->
+	 <div class="contNav1">
+      	<div class="contNav1_left">
+                <img class="contNav1_left_IMG1" src="../img/XiaoMi/logojpg.jpg"/>
+                <img class="contNav1_left_IMG2" src="../img/XiaoMi/yybjb.gif"/>
+        </div>
+        <div class="contNav1_center">
+        	<a class="contNav1_center_part1">小米手机</a>
+            <a class="contNav1_center_part2">红米</a>
+        	<a class="contNav1_center_part3">平板·笔记本</a>
+            <a class="contNav1_center_part4">电视</a>
+        	<a class="contNav1_center_part5">盒子·影音</a>
+            <a class="contNav1_center_part6">路由器</a>
+        	<a class="contNav1_center_part7">智能硬件</a>
+        </div>
+        <div class="contNav1_right">
+        	<a>服务</a> &nbsp &nbsp
+        	<a>社区</a>
+            <input class="search_input" type="text"/>
+            <input type="submit" value=""/>
+        </div>
+    </div>
+            <!--10 leftNav+轮播图-->
+     <div class="contNav2">
+        	<ul class="contNav2_select">
+            	<li id="contNav2_select_1"><a></a></li>
+            	<li id="contNav2_select_2"><a></a></li>
+            	<li id="contNav2_select_3"><a></a></li>
+            	<li id="contNav2_select_4"><a></a></li>
+            	<li id="contNav2_select_5"><a></a></li>
+            </ul>
+        	<ul class="contNav2_RunImg">
+            	<li><a><img src="../img/XiaoMi/xmad_14875567069923_MvjEs.jpg"/></a></li>
+            	<li><a><img src="../img/XiaoMi/xmad_14876420039191_BkaqG (1).jpg"/></a></li>
+            	<li><a><img src="../img/XiaoMi/xmad_148766062019_RCFWp (1).jpg"/></a></li>
+            	<li><a><img src="../img/XiaoMi/xmad_14869825777109_sGWON (1).jpg"/></a></li>
+            	<li><a><img src="../img/XiaoMi/xmad_14873018230451_owtCT (1).jpg"/></a></li>
+            </ul>
+            <div class="leftNav">
+                <ul>
+                	<li class="leftNav_part1"><a>手机 电话卡</a></li>
+                	<li class="leftNav_part2"><a>笔记本 平板</a></li>
+                	<li class="leftNav_part3"><a>电视 盒子</a></li>                	
+                    <li class="leftNav_part4"><a>路由器 智能硬件</a></li>
+                	<li class="leftNav_part5"><a>移动电源 电池 插线板</a></li>
+                	<li class="leftNav_part6"><a>耳机 音响</a></li>
+                	<li class="leftNav_part7"><a>保护套 贴膜</a></li>
+                	<li class="leftNav_part8"><a>线材 支架 存储卡</a></li>
+                	<li class="leftNav_part9"><a>箱包 服饰</a></li>
+                	<li class="leftNav_part10"><a>米兔 生活周边</a></li>
+                </ul>
+    		</div>
+            <div class="leftNav_cont">
+            	<div class="leftNav_loading" id="leftNav_L1">
+                <ul>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/xmNOTE2-80.jpg"/><span>小米Note2</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/MIX-80.jpg"/><span>小米MIX</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/xm5S-80.jpg"/><span>小米5s</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/xm5S-plus-80.jpg"/><span>小米5s Plus</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/xm5-80.jpg"/><span>小米手机5</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/xmmax-80.jpg"/><span>小米Max</span></a><a class="leftNav_icon_a2">选购</a></li>
+                </ul>
+                <ul>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/hmn4x80.png"/><span>红米Note 4X</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/hmnote4-80.jpg"/><span>红米Note 4</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/hm4-80.jpg"/><span>红米 4</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/hm4A-80.jpg"/><span>红米4A</span></a><a class="leftNav_icon_a2">选购</a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/compare.jpg"/><span>对比手机</span></a></li>
+                	<li><a class="leftNav_icon_a1"><img src="../img/XiaoMi2/mimobile.jpg"/><span>小米移动电话卡</span></a></li>
+                </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L2">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/笔记本/bijiben80.jpg"/><span>小米笔记本Air</span></a><a class="leftNav_icon_a2">选购</a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/笔记本/pad2.png"/><span>小米平板2</span></a><a class="leftNav_icon_a2">选购</a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/笔记本/usbzjqggg80.jpg"/><span>USB-C转接器</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/笔记本/neidanbao80.jpg"/><span>小米笔记本内胆包</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/笔记本/shubiao80.jpg"/><span>小米便携鼠标</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L3">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/mitv3s48.jpg"/><span>小米电视3s 48英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/553s80.png"/><span>小米电视3s 55英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/018080.png"/><span>小米电视3s 60英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/653s80.png"/><span>小米电视3s 65英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/6580side.jpg"/><span>小米电视3s 65英寸 曲面</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/tv3-55.jpg"/><span>小米电视3s 55英寸</span></a></li>
+                    </ul>
+                    <ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/tv60.jpg"/><span>小米电视3 60英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/tv70.png"/><span>小米电视3 70英寸</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/hezi80-80.jpg"/><span>小米盒子3s</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/hezi80-80 (1).jpg"/><span>小米盒子3c</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/hezizengqiangban80side.jpg"/><span>小米盒子3 增强版</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/hezimini.jpg"/><span>小米盒子 mini</span></a></li>
+                    </ul>
+                   	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/diyinpao.jpg"/><span>小米低音炮</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/shb.jpg"/><span>蓝牙手柄</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/80x80.jpg"/><span>家庭音响</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/电视盒子/dianshipeijian.jpg"/><span>电视盒子配件</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L4">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/jiqiren.jpg"/><span>米家扫地机器人及配件</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/laovr80.jpg"/><span>小米VR眼镜</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/luyouqi-80.jpg"/><span>小米路由器</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/scooter.jpg"/><span>九号平衡车</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/zxc80-80.jpg"/><span>电助力折叠自行车</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/shuihu80.jpg"/><span>米家恒温电水壶</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/czjhq80.jpg"/><span>米家车载空气净化器</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/dianhuashoubiao80.jpg"/><span>手表</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/dianfanbao-80.jpg"/><span>米价智能电饭煲</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/xiaobai80.jpg"/><span>摄相机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/jinghuaqilvxin80.jpg"/><span>净化器及滤芯</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/jingshuiqiandlvxin-80.jpg"/><span>净化器及滤芯</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/xueyaji-80.jpg"/><span>血压计</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/jiqiren80.jpg"/><span>米兔积木机器人</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/zhinengdeng-80.jpg"/><span>智能灯</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/gushiji80.jpg"/><span>米兔智能故事机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/zhinengjiatingtaozhuang-80.jpg"/><span>智能家庭组合</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/shouhuan280.jpg"/><span>手环及配件</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/scale.jpg"/><span>体重秤</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/huabanche80.jpg"/><span>电动滑板车</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/wurenji80.jpg"/><span>小米无人机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/jiashiqi80.jpg"/><span>智米除菌加湿器</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/路由器、智能硬件/znyjdaohang.jpg"/><span>全部智能硬件</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L5">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/dianyuan280.jpg"/><span>小米移动电源</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/c1xb343.jpg"/><span>插线板</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/yidongdianyuan.jpg"/><span>品牌移动电源</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/dianyuanfujian.jpg"/><span>移动电源附件</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/charger80.jpg"/><span>电池</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/chongdianqi-80.jpg"/><span>充电器</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/5Battery1.jpg"/><span>彩虹五号电池</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/移动电源/7Battery1.jpg"/><span>彩虹七号电池</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L6">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/toudai80.jpg"/><span>小米头戴式耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/tdsqs80.jpg"/><span>头戴式耳机轻松版</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/qtpro80.jpg"/><span>小米圈铁耳机 Pro</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/quantie.jpg"/><span>小米圈铁耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/jiaonang80.jpg"/><span>小米胶囊耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/huosai1.jpg"/><span>小米活塞耳机清新版</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/bluetoothheadset.jpg"/><span>小米蓝牙耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/yundong80.jpg"/><span>小米运动蓝牙耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/pinpai80.jpg"/><span>品牌耳机</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/wlyx80.jpg"/><span>小米网络音响</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/pocketaudio.png"/><span>小米蓝牙音箱</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/suishen-80.jpg"/><span>小米随身蓝牙音箱</span></a></li>
+                    </ul>
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/xiaogangpao2-hei-80.jpg"/><span>小钢炮音箱 2</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/fanghezi.jpg"/><span>小米方盒子音箱</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/naozhong80.jpg"/><span>小米音乐闹钟</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/mituyinx80.jpg"/><span>小米米兔音箱</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/耳机音响/chechong1.jpg"/><span>音乐蓝牙车充</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L7">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/贴膜/tiemo.jpg"/><span>贴膜</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/贴膜/baohu.jpg"/><span>保护套/保护壳</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L8">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/存储卡/xiancai.jpg"/><span>线材</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/存储卡/zipaigan.jpg"/><span>自拍杆</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/存储卡/zhijia.jpg"/><span>手机支架</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/存储卡/cunchu.jpg"/><span>存储卡</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L9">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/箱包/xiangbao-80.jpg"/><span>箱包</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/箱包/lvxingxiang.jpg"/><span>90分旅行箱</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/箱包/huise2-80.jpg"/><span>服饰</span></a></li>
+                    </ul>
+                </div>
+            	<div class="leftNav_loading" id="leftNav_L10">
+                	<ul>
+                        <li><a class="leftNav_icon_a1"><img src="../img/周边/mitu-80.jpg"/><span>米兔玩偶</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/周边/shubiaodian-80.jpg"/><span>鼠标垫</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/周边/zhoubian1.jpg"/><span>生活周边</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/周边/zazhi1021-80.jpg"/><span>《小米会刊》</span></a></li>
+                        <li><a class="leftNav_icon_a1"><img src="../img/周边/rujiao80.jpg"/><span>8H乳胶枕</span></a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+            <!--6个入口、3张img-->
+     <div class="home_channel">
+        <ul>
+            <li><a>选购手机</a></li>
+            <li><a>企业团购</a></li>
+            <li><a>官翻产品</a></li>
+        </ul>
+        <ul>
+            <li><a>小米移动</a></li>
+            <li><a>以旧换新</a></li>
+            <li><a>话费充值</a></li>
+        </ul>
+        <a class="channel_a"><img src="../img/next/xmad_14878997852612_MmrYe.jpg"/></a>
+        <a class="channel_a"><img src="../img/next/xmad_14875757172024_bjSpf.jpg"/></a>
+        <a class="channel_a"><img src="../img/next/xmad_1487844180216_JVvCK.jpg"/></a>
+    </div> 
+            <!--小米明星单品-->
+     <div class="idol_box1">
+    	<h2>小米明星单品</h2>
+        <div class="idol_box1_moveLR">
+        	<a class="idol_box1_moveL"><</a>
+            <a class="idol_box1_moveR">></a>
+        </div>
+        <div class="idol_box1_cont">
+        	<ul id="idol_box1_cont_u1">
+            	<li class="box1_cont_marginR_li1" id="box1_cart1">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/28f54c24-e1f8-4cd2-b05f-f47b324ba788.png"/></a>
+                    <a class="box1_cont_a2"><span>小米手机5 64GB</span></a>
+                    <p class="box1_cont_p1">四轴防抖相机，能刷公交卡、银行卡</p><br/>
+                    <p class="box1_cont_p2">1799元</p>
+                </li>
+            	<li class="box1_cont_marginR_li2">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/74dd9736-f254-4964-a06a-24f0befb21ac.png"/></a>
+                    <a class="box1_cont_a2"><span>小米电视3s 48英寸</span></a>
+                    <p class="box1_cont_p1">原装液晶屏，金属机身</p><br/>
+                    <p class="box1_cont_p2">2599元</p>
+                </li>
+            	<li class="box1_cont_marginR_li3">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/17fc57e5-e332-4452-bba4-ef341f6e59fd.png"/></a>
+                    <a class="box1_cont_a2"><span>小米移动电源2</span></a>
+                    <p class="box1_cont_p1">双向快充，高密度锂聚合物电芯</p><br/>
+                    <p class="box1_cont_p2">79元</p>
+                </li>
+            	<li class="box1_cont_marginR_li4">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/6ef55907-bbed-49be-a2bb-be0821b5f7b8.png"/></a>
+                    <a class="box1_cont_a2"><span>小米手环 2</span></a>
+                    <p class="box1_cont_p1">OLED 显示屏幕，升级计步算法</p><br/>
+                    <p class="box1_cont_p2">149元</p>
+                </li>
+            	<li class="box1_cont_marginR_li5">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/848def18-47d9-4ca0-8822-c2ac61b83779.png"/></a>
+                    <a class="box1_cont_a2"><span>米家扫地机器人</span></a>
+                    <p class="box1_cont_p1">智能路径规划，扫得干净扫得快</p><br/>
+                    <p class="box1_cont_p2">1699元</p>
+                </li>
+            </ul>
+            <ul id="idol_box1_cont_u2">
+            	<li class="box1_cont_marginR_li1" id="box1_cart2">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/xmad_14878364411484_BzwLi.png"/></a>
+                    <a class="box1_cont_a2"><span>米家车载空气净化器</span></a>
+                    <p class="box1_cont_p1">双风机循环气流，高效净化车内空</p><br/>
+                    <p class="box1_cont_p2">449元</p>
+                </li>
+            	<li class="box1_cont_marginR_li2">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/c8c48bbb-5c57-4fa6-9bea-7abd7f24a13a.png"/></a>
+                    <a class="box1_cont_a2"><span>米家iHealth血压计</span></a>
+                    <p class="box1_cont_p1">爸妈上手就会用的智能血压计</p><br/>
+                    <p class="box1_cont_p2">399元</p>
+                </li>
+            	<li class="box1_cont_marginR_li3">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/de35852a-1be5-4ef5-846f-dcdd2efcfea6.png"/></a>
+                    <a class="box1_cont_a2"><span>小米路由器3</span></a>
+                    <p class="box1_cont_p1">更快更强，不止四天线</p><br/>
+                    <p class="box1_cont_p2">149元</p>
+                </li>
+            	<li class="box1_cont_marginR_li4">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/eb09500f-bad2-43de-8b94-2cc17c30de71.png"/></a>
+                    <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                    <p class="box1_cont_p1">铝合金音腔，第三代平衡阻尼系统</p><br/>
+                    <p class="box1_cont_p2">29元</p>
+                </li>
+            	<li class="box1_cont_marginR_li5">
+                	<a class="box1_cont_a1"><img src="../img/明星单品/d663ce13-c814-4f35-a7a8-46a4745e6fd7.jpg"/></a>
+                    <a class="box1_cont_a2"><span>小米体重秤</span></a>
+                    <p class="box1_cont_p1">100克，喝杯水都可感知的精准</p><br/>
+                    <p class="box1_cont_p2">99元</p>
+                </li>
+            </ul>
+        </div>
+    </div>   
+            <!--智能硬件-->
+     <div class="idol_box02">
+    <div class="idol_box2">
+    	<h2>智能硬件</h2>
+        <div class="idol_box2_FindAll">
+        	<a class="idol_box2_FindAll_a1">查看全部</a><a class="idol_box2_FindAll_a2">></a>
+        </div>
+        <div class="idol_box2_d1">
+        	<a><img src="../img/智能硬件/57c2f4fb-6743-44c6-b447-6bd55aaeef89.jpg"/></a>
+        </div>
+        <div class="idol_box2_d2">
+        	<ul>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1487579524.92087599!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米家空气净化器滤芯 抗菌版</span></a>
+                    <p class="box1_cont_p1">抗菌率达99%以上，有效吸附甲醛</p>
+                    <p class="box1_cont_p2">159元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1478656331.65637548!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米兔儿童手表Q</span></a>
+                    <p class="box1_cont_p1">11 重安全设计，五重精准定位</p>
+                    <p class="box1_cont_p2">299元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1464615180.86261317!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米兔智能故事机</span></a>
+                    <p class="box1_cont_p1">微信远程互动，智能语音交互</p>
+                    <p class="box1_cont_p2">199元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/T1OVC_ByY_1RXrhCrK!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米家压力IH电饭煲</span></a>
+                    <p class="box1_cont_p1">智能烹饪，灰铸铁粉体涂层内胆</p>
+                    <p class="box1_cont_p2">999元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1481507050.2285518!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>小米米家电动滑板车</span></a>
+                    <p class="box1_cont_p1">极简几何设计，1 分钟轻松上手</p>
+                    <p class="box1_cont_p2">1999元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1478076543.58248227!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米兔积木机器人</span></a>
+                    <p class="box1_cont_p1">978个零件，享受挑战双手的乐趣</p>
+                    <p class="box1_cont_p2">499元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/pms_1468806372.46368911!220x220.jpg"/></a>
+                    <a class="box1_cont_a2"><span>米家小白智能摄像机</span></a>
+                    <p class="box1_cont_p1">360° 全景拍摄，1080P 高清摄像</p>
+                    <p class="box1_cont_p2">399元</p>
+                </li>
+            	<li>
+                	<a class="box1_cont_a1"><img src="../img/智能硬件/cbabf443-1ff1-4014-a1bf-06c45476f1e6.png"/></a>
+                    <a class="box1_cont_a2"><span>米兔定位电话</span></a>
+                    <p class="box1_cont_p1">高清双向通话，五重精准定位</p>
+                    <p class="box1_cont_p2">169元</p>
+                </li>            	
+            </ul>
+        </div> 
+    </div>    
+    </div>
+            <!--搭配-->
+     <div class="idol_box03">
+    <div class="idol_box3">
+            <h2>搭配</h2>
+            <div class="idol_box3_selectAll">
+                <a class="idol_box3_selectAll_a1">热门</a>
+                <a class="idol_box3_selectAll_a2">耳机音箱</a>
+                <a class="idol_box3_selectAll_a3">电源</a>
+                <a class="idol_box3_selectAll_a4">电池存储卡</a>
+            </div>
+            <div class="idol_box3_d1">
+                <ul>
+                    <li class="idol_box03_d1_LI1"><a><img src="../img/搭配/2bcd9d5f-b072-42ad-b7bf-65f5f424e82d.jpg"/></a></li>
+                    <li class="idol_box03_d1_LI2"><a><img src="../img/搭配/21dc127c-77ad-48fb-b7c1-bf382a711221.jpg"/></a></li>
+                </ul>
+            </div>
+            <div class="idol_box3_d2">
+                <ul class="idol_box03_dl" id="idol_box03_u1">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1479724763.43233402.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米网络音响</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">2496人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1482816047.72829695.jpg"/></a>
+                        <a class="box1_cont_a2"><span>20000mAh小米移动电源2</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">3910人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1478510064.36397738.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米圈铁耳机Pro</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">6183人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1482321199.12589253.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                        <p class="box1_cont_p2">29元</p>
+                        <p class="box1_cont_p3">1.3万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1F5K_BjVv1RXrhCrK.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米小钢炮蓝牙音箱2</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">1.8万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1481269289.59498154.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米移动电源10000mAh高配版</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">1320人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1478248721.42297795.jpg"></a>
+                        <a class="box1_cont_a2"><span>小米蓝牙耳机青春版</span></a>
+                        <p class="box1_cont_p2">59元</p>
+                        <p class="box1_cont_p3">1.1万人评价</p>
+                    </li>
+                    <div class="box_cont_last">
+                    	<div class="box_cont_lastdiv1">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/T1ycK_BjYv1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><p>小米圈铁耳机</p></a>
+                            <p class="box1_cont_p2">399元</p>
+                        </div>
+                    	<div class="box_cont_lastdiv2">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                            <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                            <p class="box1_cont_p3">热门</p>
+                        </div>
+                    </div>            	
+                </ul>
+                <ul class="idol_box03_dl" id="idol_box03_u2">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1482301662.61336109!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米网络音响</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">2496人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1SkV_BCd_1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>20000mAh小米移动电源2</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">3910人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1478510064.36397738!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米圈铁耳机Pro</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">6183人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1LqYgBCWv1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                        <p class="box1_cont_p2">29元</p>
+                        <p class="box1_cont_p3">1.3万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1Tfd_BjAv1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米小钢炮蓝牙音箱2</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">1.8万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1A.A_BKYT1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米移动电源10000mAh高配版</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">1320人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1481098202.44798045!220x220.jpg"></a>
+                        <a class="box1_cont_a2"><span>小米蓝牙耳机青春版</span></a>
+                        <p class="box1_cont_p2">59元</p>
+                        <p class="box1_cont_p3">1.1万人评价</p>
+                    </li>
+                    <div class="box_cont_last">
+                    	<div class="box_cont_lastdiv1">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/T1MDK_B_YT1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><p>小米圈铁耳机</p></a>
+                            <p class="box1_cont_p2">399元</p>
+                        </div>
+                    	<div class="box_cont_lastdiv2">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                            <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                            <p class="box1_cont_p3">热门</p>
+                        </div>
+                    </div>            	
+                </ul>
+                <ul class="idol_box03_dl" id="idol_box03_u3">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1AcE_Bghv1RXrhCrK.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米网络音响</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">2496人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1atV_BQLT1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>20000mAh小米移动电源2</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">3910人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1481273468.72564539!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米圈铁耳机Pro</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">6183人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1482110626.95581660!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                        <p class="box1_cont_p2">29元</p>
+                        <p class="box1_cont_p3">1.3万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1476688190.21955893!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米小钢炮蓝牙音箱2</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">1.8万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1Ihd_BTCv1RXrhCrK.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米移动电源10000mAh高配版</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">1320人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1469410847.29693876!220x220.jpg"></a>
+                        <a class="box1_cont_a2"><span>小米蓝牙耳机青春版</span></a>
+                        <p class="box1_cont_p2">59元</p>
+                        <p class="box1_cont_p3">1.1万人评价</p>
+                    </li>
+                    <div class="box_cont_last">
+                    	<div class="box_cont_lastdiv1">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/T13mDQBjCT1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><p>小米圈铁耳机</p></a>
+                            <p class="box1_cont_p2">399元</p>
+                        </div>
+                    	<div class="box_cont_lastdiv2">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                            <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                            <p class="box1_cont_p3">热门</p>
+                        </div>
+                    </div>            	
+                </ul>
+                <ul class="idol_box03_dl" id="idol_box03_u4">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1476680251.65738257!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米网络音响</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">2496人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1PQWvBvAv1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>20000mAh小米移动电源2</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">3910人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1xxVTBghv1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米圈铁耳机Pro</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">6183人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T178EjBjVT1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                        <p class="box1_cont_p2">29元</p>
+                        <p class="box1_cont_p3">1.3万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T1vFEjBbWT1RXrhCrK!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米小钢炮蓝牙音箱2</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">1.8万人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/pms_1463731356.45818748!220x220.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米移动电源10000mAh高配版</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">1320人评价</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/搭配/T142A_BXEv1RXrhCrK!220x220.jpg"></a>
+                        <a class="box1_cont_a2"><span>小米蓝牙耳机青春版</span></a>
+                        <p class="box1_cont_p2">59元</p>
+                        <p class="box1_cont_p3">1.1万人评价</p>
+                    </li>
+                    <div class="box_cont_last">
+                    	<div class="box_cont_lastdiv1">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/T1sRhTBsYT1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><p>小米圈铁耳机</p></a>
+                            <p class="box1_cont_p2">399元</p>
+                        </div>
+                    	<div class="box_cont_lastdiv2">
+                        	<a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                            <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                            <p class="box1_cont_p3">热门</p>
+                        </div>
+                    </div>            	
+                </ul>                                                
+            </div> 
+        </div>
+        </div>  
+       		<!--配件-->
+     <div class="idol_box03">
+        <div class="idol_box3">
+                <h2>配件</h2>
+                <div class="idol_box3_selectAll">
+                    <a class="idol_box3_selectAll_a5">热门</a>
+                    <a class="idol_box3_selectAll_a6">保护套</a>
+                    <a class="idol_box3_selectAll_a7">贴膜</a>
+                    <a class="idol_box3_selectAll_a8">其他配件</a>
+                </div>
+                <div class="idol_box3_d1">
+                    <ul>
+                        <li class="idol_box03_d1_LI1"><a><img src="../img/配件/0ff2c84c-d0e6-4232-b0fb-2cebefd1a207.jpg"/></a></li>
+                        <li class="idol_box03_d1_LI2"><a><img src="../img/配件/xmad_14870664354709_bVmjU.png"/></a></li>
+                    </ul>
+                </div>
+                <div class="idol_box3_d2">
+                    <ul class="idol_box03_dl" id="idol_box03_u5">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1XybgBjhT1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米手机4c 小米4c 智能唤醒翻盖保</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">2.4万人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1482221011.26064844.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米指环支架</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">6053人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478174026.59045943.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米4高配版 翻盖保护</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">1569人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1486980879.11199962.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米NOTE 4X 红米Note 4X 高透</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">483人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1487742227.27595029.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米NOTE 4X 红米Note 4X 标准</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">348人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src='../img/配件/pms_1482136306.7944683.jpg'/></a>
+                            <a class="box1_cont_a2"><span>小米5s 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">4265人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1zL_vByCT1RXrhCrK.jpg"></a>
+                            <a class="box1_cont_a2"><span>小米随身WIFI</span></a>
+                            <p class="box1_cont_p2">19.9元</p>
+                            <p class="box1_cont_p3">30.3万人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src='../img/配件/pms_1482136335.88325212.jpg'/></a>
+                                <a class="box1_cont_a2"><p>小米5s Plus </p></a>
+                                <p class="box1_cont_p2">19元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">热门</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u6">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478247753.15734216!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米Note2 智能翻盖保护套</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">663人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1474888072.78155129!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米5s 智能立显点阵式保护套</span></a>
+                            <p class="box1_cont_p2">79元</p>
+                            <p class="box1_cont_p3">2490人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478790273.61645973!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米Note4 超薄肤感软胶保护套</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">319人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478174026.59045943!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米4标准版 翻盖保护套</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">507人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478582939.22254590!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米4高配版 翻盖保护套</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">1569人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1480580129.24255998!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米Note 2 高透软胶保护套</span></a>
+                            <p class="box1_cont_p2">9.9元</p>
+                            <p class="box1_cont_p3">304人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1486980875.1641234!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>红米Note 4X 高透软胶保护套</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">483人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/配件/T1jWWjBsET1RXrhCrK!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>小米Max 超..</p></a>
+                                <p class="box1_cont_p2">29元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">保护套</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u7">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1482136232.14896578!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米4标准版 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">9.9元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src='../img/配件/pms_1482136277.01722149!220x220.jpg'/></a>
+                            <a class="box1_cont_a2"><span>红米4高配版 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">9.9元</p>
+                            <p class="box1_cont_p3">1754人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1cVLjBX_v1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米手机5 极薄防蓝光贴膜</span></a>
+                            <p class="box1_cont_p2">49元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1482136306.7944683!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米5s 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">4265人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1487742227.27595029!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>红米Note 4X 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3">348人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1y7JQBbCT1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米Max 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1469787992.44385373!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>红米Pro 标准高透贴膜</span></a>
+                            <p class="box1_cont_p2">9.9元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/配件/pms_1472177415.40899754!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>红米Note4 标..</p></a>
+                                <p class="box1_cont_p2">19元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">贴膜</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u8">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1_WhgBb_T1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>青米USB快速充电数据线</span></a>
+                            <p class="box1_cont_p2">9.9元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1482221011.26064844!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米指环支架 金色</span></a>
+                            <p class="box1_cont_p2">19元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1WTEvBmKT1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米蓝牙手柄</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T11oW_B4dv1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>蓝牙语音体感遥控器</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1478248566.62624407!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米便携鼠标</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/pms_1469523170.25518983!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>USB-C至HDMI多功能转接器</span></a>
+                            <p class="box1_cont_p2">149元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/配件/T1xLxQBgVT1RXrhCrK!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>USB Type-C 转接头</span></a>
+                            <p class="box1_cont_p2">5元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/配件/T1_7KgB4Jv1RXrhCrK!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>青米USB快速充..</p></a>
+                                <p class="box1_cont_p2">19元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">其他配件</p>
+                            </div>
+                        </div>            	
+                    </ul>                                                
+                </div> 
+            </div>
+        </div>                      
+       		<!--周边-->
+     <div class="idol_box03">
+        <div class="idol_box3">
+                <h2>生活周边</h2>
+                <div class="idol_box3_selectAll">
+                    <a class="idol_box3_selectAll_a9">热门</a>
+                    <a class="idol_box3_selectAll_a10">服装</a>
+                    <a class="idol_box3_selectAll_a11">米兔</a>
+                    <a class="idol_box3_selectAll_a12">生活周边</a>
+                    <a class="idol_box3_selectAll_a13">箱包</a>
+                </div>
+                <div class="idol_box3_d1">
+                    <ul>
+                        <li class="idol_box03_d1_LI1"><a><img src="../img/周边2/xmad_1487749343438_onUqt.jpg"/></a></li>
+                        <li class="idol_box03_d1_LI2"><a><img src="../img/周边2/xmad_14877494013394_hRbYf.jpg"/></a></li>
+                    </ul>
+                </div>
+                <div class="idol_box3_d2">
+                    <ul class="idol_box03_dl" id="idol_box03_u9">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1CDbjBgAT1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>90分旅行箱 24寸</span></a>
+                            <p class="box1_cont_p2">349元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1479972928.16946623!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>最生活浴巾·青春系列</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3">300人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1472710764.55986027!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>8H标准乳胶枕</span></a>
+                            <p class="box1_cont_p2">149元</p>
+                            <p class="box1_cont_p3">3667人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/d0fef67b-8f3c-4b5a-af8d-0f588b946f6a.jpg"/></a>
+                            <a class="box1_cont_a2"><span>经典连帽休闲卫衣</span></a>
+                            <p class="box1_cont_p2">109元</p>
+                            <p class="box1_cont_p3">2400人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1469410489.30412121!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>米家签字笔</span></a>
+                            <p class="box1_cont_p2">14.9元</p>
+                            <p class="box1_cont_p3">348人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1479182984.26159750!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>防雾霾口罩</span></a>
+                            <p class="box1_cont_p2">69元</p>
+                            <p class="box1_cont_p3">2594人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1481178479.88974286!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>8H多功能护颈枕U1</span></a>
+                            <p class="box1_cont_p2">79元</p>
+                            <p class="box1_cont_p3">904人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/周边2/pms_1463971828.3961404!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>变形金刚特别..</p></a>
+                                <p class="box1_cont_p2">169元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">热门</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u10">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/bc5ef4c1-69e8-48c3-8eda-eadddc6914c4.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米摇粒绒加厚保暖外套</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3">5930人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/eea5c9e7-ba21-4131-9945-89a296413b6e.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米空气层连帽运动卫衣 男款</span></a>
+                            <p class="box1_cont_p2">149元</p>
+                            <p class="box1_cont_p3">1560人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/329a5d3f-ad6f-47fc-981e-85e0bd634055.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米摇粒绒加厚保暖外套 女款</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3">748人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/2e1475fd-6afc-4f3c-bca3-ce50c342642c.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米空气层连帽运动卫衣 女款</span></a>
+                            <p class="box1_cont_p2">149元</p>
+                            <p class="box1_cont_p3">180人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1478762755.55733411!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米纪念款围巾（去探索）</span></a>
+                            <p class="box1_cont_p2">89元</p>
+                            <p class="box1_cont_p3">124人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/357bebdd-6e77-4c43-a33c-b8287caace2e.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米短袖T恤 水管工米兔</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">4147人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/23c8122a-3bf4-4675-abb2-aca349aa1923.jpg"></a>
+                            <a class="box1_cont_a2"><span>小米V领短袖T恤 女款</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">3850人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/周边2/T1i.YjBbWT1RXrhCrK.jpg"/></a>
+                                <a class="box1_cont_a2"><p>小米短袖T恤 情..</p></a>
+                                <p class="box1_cont_p2">39元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">服装</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u11">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1470896116.76978423!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>60cm柔软米兔抱枕</span></a>
+                            <p class="box1_cont_p2">129元</p>
+                            <p class="box1_cont_p3">707人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1464943812.60215816!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>超脑米兔钥匙扣</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">755人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1468221391.115311!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>米兔多功能护颈枕</span></a>
+                            <p class="box1_cont_p2">49元</p>
+                            <p class="box1_cont_p3">2223人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src='../img/周边2/pms_1470619266.15986000!220x220.jpg'/></a>
+                            <a class="box1_cont_a2"><span>小米米兔音箱</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3">1107人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1i.YjBbWT1RXrhCrK (1).jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米短袖T恤 情侣米兔 女款</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">1845人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/e8f5a80c-7f57-4f7b-97fc-c446059d2381.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米短袖T恤 水管工米兔</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">4147人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1XMD_Bgdv1RXrhCrK.jpg"></a>
+                            <a class="box1_cont_a2"><span>小米短袖T恤 西游记</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">8746人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/周边2/23c8122a-3bf4-4675-abb2-aca349aa1923 (1).jpg"/></a>
+                                <a class="box1_cont_a2"><p>小米V领短袖..</p></a>
+                                <p class="box1_cont_p2">39元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">米兔</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u12">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1480477598.47892154!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>米家中性笔专用笔芯</span></a>
+                            <p class="box1_cont_p2">6.9元</p>
+                            <p class="box1_cont_p3">2426人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1465724476.99494960!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>花花草草监测仪</span></a>
+                            <p class="box1_cont_p2">49元</p>
+                            <p class="box1_cont_p3">5323人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/5a28d943-ef5d-4920-a89a-7f1bce6c5b35.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米蓝牙手柄</span></a>
+                            <p class="box1_cont_p2">19.9元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1482737297.53343760!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>防雾霾滤芯（5片装）</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">478人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1463971828.3961404!220x220 (1).jpg"/></a>
+                            <a class="box1_cont_a2"><span>变形金刚特别版声波</span></a>
+                            <p class="box1_cont_p2">169元</p>
+                            <p class="box1_cont_p3">2432人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1yo_gBm_v1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>金属鼠标垫 小号</span></a>
+                            <p class="box1_cont_p2">49元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1eKdgB4xv1RXrhCrK!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>小米电源线收纳盒</span></a>
+                            <p class="box1_cont_p2">49元</p>
+                            <p class="box1_cont_p3">3008人评价</p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/周边2/T1fODjBsbT1RXrhCrK!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>鼠标垫加大号</p></a>
+                                <p class="box1_cont_p2">19元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">生活周边</p>
+                            </div>
+                        </div>            	
+                    </ul>
+                    </ul>
+                    <ul class="idol_box03_dl" id="idol_box03_u13">
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1RRCjBKJv1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>90分旅行箱 20寸</span></a>
+                            <p class="box1_cont_p2">299元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1TvJ_B_Kv1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>90分旅行箱 24寸</span></a>
+                            <p class="box1_cont_p2">349元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/pms_1466665347.53966019!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米轻动系百搭多用背包</span></a>
+                            <p class="box1_cont_p2">39元</p>
+                            <p class="box1_cont_p3">6375人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1G9Y_BmCv1RXrhCrK.jpg"/></a>
+                            <a class="box1_cont_a2"><span>90分便携收纳袋</span></a>
+                            <p class="box1_cont_p2">29元</p>
+                            <p class="box1_cont_p3">3332人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/6ddc1df6-ce8e-4cb5-a26a-b5ef80f1adf7.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米经典商务双肩包</span></a>
+                            <p class="box1_cont_p2">99元</p>
+                            <p class="box1_cont_p3">9040人评价</p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1a3DvB7hv1RXrhCrK!220x220.jpg"/></a>
+                            <a class="box1_cont_a2"><span>小米极简都市双肩包</span></a>
+                            <p class="box1_cont_p2">149元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <li>
+                            <a class="box1_cont_a1"><img src="../img/周边2/T1FtKgBvZv1RXrhCrK!220x220.jpg"></a>
+                            <a class="box1_cont_a2"><span>小米多功能都市休闲胸包</span></a>
+                            <p class="box1_cont_p2">69元</p>
+                            <p class="box1_cont_p3"></p>
+                        </li>
+                        <div class="box_cont_last">
+                            <div class="box_cont_lastdiv1">
+                                <a class="box1_cont_a3"><img src="../img/周边2/T1tzL_BjYT1RXrhCrK!220x220.jpg"/></a>
+                                <a class="box1_cont_a2"><p>学院风简约双肩..</p></a>
+                                <p class="box1_cont_p2">59元</p>
+                            </div>
+                            <div class="box_cont_lastdiv2">
+                                <a class="box1_cont_a3"><img src="../img/搭配/right.jpg"/></a>
+                                <a class="box1_cont_a2" style="font-size: 18px;"><p>浏览更多</p></a>
+                                <p class="box1_cont_p3">箱包</p>
+                            </div>
+                        </div>            	
+                    </ul>                                                
+                </div> 
+            </div>
+        </div>  
+     		<!--为你推荐-->
+    <div class="idol_box03">
+    <div class="idol_box3" id="idol_box_foru">
+            <h2>为你推荐</h2>
+            <div class="idol_box1_moveLR2">
+                <a class="idol_box1_moveL2"><</a>
+                <a class="idol_box1_moveR2">></a>
+            </div>
+            <div class="idol_box3_d3">
+                <ul class="idol_box03_dl" id="idol_box03_u20">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1469583247.6157588.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米笔记本Air 13.3英寸</span></a>
+                        <p class="box1_cont_p2">4999元</p>
+                        <p class="box1_cont_p3">7096人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1475052168.43877575.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米电视3s 65英寸 影院版</span></a>
+                        <p class="box1_cont_p2">6699元</p>
+                        <p class="box1_cont_p3"></p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1479724763.43233402.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米网络音响</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">2507人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1465366178.11466342.jpg"/></a>
+                        <a class="box1_cont_a2"><span>米家恒温电水壶</span></a>
+                        <p class="box1_cont_p2">199元</p>
+                        <p class="box1_cont_p3">5982人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1483942428.16162503.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小方智能摄像机</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">2210人好评</p>
+                    </li>
+                </ul>
+                <ul class="idol_box03_dl" id="idol_box03_u21">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1476688193.46995320.jpg"/></a>
+                        <a class="box1_cont_a2"><span>10000mAh小米移动电源2</span></a>
+                        <p class="box1_cont_p2">79元</p>
+                        <p class="box1_cont_p3">2.5万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1471314891.14933270.jpg"/></a>
+                        <a class="box1_cont_a2"><span>米家骑记电助力折叠自行车</span></a>
+                        <p class="box1_cont_p2">2999元</p>
+                        <p class="box1_cont_p3">840人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1478678718.61531371.jpg"/></a>
+                        <a class="box1_cont_a2"><span>米家IH电饭煲</span></a>
+                        <p class="box1_cont_p2">399元</p>
+                        <p class="box1_cont_p3">5321人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1477389928.07792706.jpg"/></a>
+                        <a class="box1_cont_a2"><span>Amazfit 运动手表</span></a>
+                        <p class="box1_cont_p2">799元</p>
+                        <p class="box1_cont_p3">1243人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1473125484.8332236.jpg"/></a>
+                        <a class="box1_cont_a2"><span>米家飞利浦智睿台灯二代</span></a>
+                        <p class="box1_cont_p2">199元</p>
+                        <p class="box1_cont_p3">5372人好评</p>
+                    </li>
+                </ul>                    
+                <ul class="idol_box03_dl" id="idol_box03_u22">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1470288129.01686992.png"/></a>
+                        <a class="box1_cont_a2"><span>小米路由器3C</span></a>
+                        <p class="box1_cont_p2">99元</p>
+                        <p class="box1_cont_p3">1.4万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1482321199.12589253.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米活塞耳机 清新版</span></a>
+                        <p class="box1_cont_p2">29元</p>
+                        <p class="box1_cont_p3">1.3万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1481269289.59498154.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米移动电源10000mAh高配..</span></a>
+                        <p class="box1_cont_p2">149元</p>
+                        <p class="box1_cont_p3">1320万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1464071511.37197399.jpg"/></a>
+                        <a class="box1_cont_a2"><span>米家 LED 智能台灯</span></a>
+                        <p class="box1_cont_p2">169元</p>
+                        <p class="box1_cont_p3">1.4万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/T1F5K_BjVv1RXrhCrK.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米小钢炮蓝牙音箱2</span></a>
+                        <p class="box1_cont_p2">129元</p>
+                        <p class="box1_cont_p3">1.8万人好评</p>
+                    </li>
+                </ul>
+                <ul class="idol_box03_dl" id="idol_box03_u23">
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1481188619.07736357.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米WiFi放大器 2</span></a>
+                        <p class="box1_cont_p2">49元</p>
+                        <p class="box1_cont_p3">7170人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/T1Ay_gBKKv1RXrhCrK.jpg"/></a>
+                        <a class="box1_cont_a2"><span>空气净化器滤芯 除甲醛增强版</span></a>
+                        <p class="box1_cont_p2">169元</p>
+                        <p class="box1_cont_p3">3426人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1476425068.41165435.jpg"/></a>
+                        <a class="box1_cont_a2"><span>90分旅行箱 20寸</span></a>
+                        <p class="box1_cont_p2">299元</p>
+                        <p class="box1_cont_p3">1.8万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1478248721.42297795.jpg"/></a>
+                        <a class="box1_cont_a2"><span>小米蓝牙耳机青春版</span></a>
+                        <p class="box1_cont_p2">59元</p>
+                        <p class="box1_cont_p3">1.1万人好评</p>
+                    </li>
+                    <li>
+                        <a class="box1_cont_a1"><img src="../img/为你推荐/pms_1472711253.2453066.jpg"/></a>
+                        <a class="box1_cont_a2"><span>8H护颈乳胶枕</span></a>
+                        <p class="box1_cont_p2">239元</p>
+                        <p class="box1_cont_p3">5277人好评</p>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+        </div>  
+     		<!--热评产品-->
+    <div class="idol_box04">
+    <div class="idol_box3">
+            <h2>热评产品</h2>
+                <ul class="idol_box04_ul">
+                    <li>
+                        <a class=""><img src="../img/热评产品/05972209-0c29-4f2f-9844-09de1093ab02.jpg"/></a>
+                        <p class="box1_cont_p4"><a class="box1_cont_a2"><span>样子好可爱，特别是转来转去时很有趣。让它休眠时它就会把头转过去背对着你了，唤醒它又会自动转回来。你..</span></a></p>
+                        <p class="box1_cont_p5">来自于 随风 的评价</p>
+                        <p class="box1_cont_p6"><a>米家小白智能摄像机	</a><span style="color:#e0e0e0;">|</span><span class="box1_cont_p7">	399元</span></p>
+                    </li>
+                    <li class="idol_box04_ul_li">
+                        <a class=""><img src="../img/热评产品/a5886d24-b443-4a15-88ca-5dbd43b72de3.jpg"/></a>
+                        <p class="box1_cont_p4"><a class="box1_cont_a2"><span>先五星好评。再来说说小米空气净化器，北方的天气雾霾越来越常态，这就迫切需要一台性价比高的空气净化..</span></a></p>
+                        <p class="box1_cont_p5">来自于 sddyboy 的评价</p>
+                        <p class="box1_cont_p6"><a>小米空气净化器2 </a><span style="color:#e0e0e0;">|</span><span class="box1_cont_p7">	699元</span></p>                    </li>
+                    <li class="idol_box04_ul_li">
+                        <a class=""><img src="../img/热评产品/aa6b038a-2946-4549-acff-17c58e701556.jpg"/></a>
+                        <p class="box1_cont_p4"><a class="box1_cont_a2"><span>东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在..</span></a></p>
+                        <p class="box1_cont_p5">来自于 yinyin19891117 的评价</p>
+                        <p class="box1_cont_p6"><a>小米插线板	 </a><span style="color:#e0e0e0;">|</span><span class="box1_cont_p7">	49元</span></p>                    </li>
+                    <li class="idol_box04_ul_li">
+                        <a class=""><img src="../img/热评产品/7e051b10-ed56-43df-bd60-3780592a3345.jpg"/></a>
+                        <p class="box1_cont_p4"><a class="box1_cont_a2"><span>有了它，妈妈再也不用担心我喝不到健康的水了。呵呵，良心产品，平民价格，对现在的水质起到了很好的改善..</span></a></p>
+                        <p class="box1_cont_p5">来自于 爱疯911 的评价</p>
+                        <p class="box1_cont_p6"><a>小米净水器	</a><span style="color:#e0e0e0;">|</span><span class="box1_cont_p7">	1299元</span></p>                    </li>
+                </ul>
+            </div> 
+        </div>
+         
+			<!--内容--
+             <div class="idol_box05">
+    <div class="idol_box4">
+            <h2>内容</h2>
+                <ul class="idol_box05_ul">
+                    <li style="border-top:1px solid #ffac13;">
+						
+                        <div class="idol_box05_div1">
+                            <ul class="idol_box05_div1_u1">
+                                <li>
+                                	<h3 style="color: #ffac13;">图书</h3>
+                                	<p class="idol_box05_div1_u1_p1">哈利·波特与被诅咒的孩子</p>
+                                    <p class="idol_box05_div1_u1_p2">“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！</p>
+                                    <p class="idol_box05_div1_u1_p3">29.37元</p>
+                                    <a><img src="../img/内容/5e5da924-84e3-4959-9e25-5891cdf30757.png"/></a>
+                                </li>
+                                <li>
+                                	<p>波特与被诅咒的孩子</p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p>波特与被诅咒的孩子</p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                            </ul>
+                            <div class="idol_box05_div1_u2">
+                            	<div></div>
+                            	<div></div>
+                            	<div></div>
+                            </div>
+                            <div class="idol_box05_div5"></div>
+                            <div class="idol_box05_div6"></div>
+                        </div>
+                    </li>
+                    <li class="idol_box04_ul_li"  style="border-top:1px solid #83c44e;">
+						<h3 style="color: #83c44e;">MIUI 主题</h3>
+                        <div class="idol_box05_div1">
+                            <ul class="idol_box05_div1_u1">
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                            </ul>
+                            <ul class="idol_box05_div1_u">
+                            	<li></li>
+                            	<li></li>
+                            	<li></li>
+                            </ul>
+                            <div class="idol_box05_div5"></div>
+                            <div class="idol_box05_div6"></div>
+                        </div>
+                    </li>
+                    <li class="idol_box04_ul_li"  style="border-top:1px solid #e53935;">
+						<h3 style="color: #e53935;">游戏</h3>
+                        <div class="idol_box05_div1">
+                            <ul class="idol_box05_div1_u1">
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                            </ul>
+                            <ul class="idol_box05_div1_u">
+                            	<li></li>
+                            	<li></li>
+                            	<li></li>
+                            </ul>
+                            <div class="idol_box05_div5"></div>
+                            <div class="idol_box05_div6"></div>
+                        </div>
+                    </li>
+                    <li class="idol_box04_ul_li"  style="border-top:1px solid #2196f3;">
+						<h3 style="color: #2196f3;">应用</h3>
+                        <div class="idol_box05_div1">
+                            <ul class="idol_box05_div1_u1">
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                                <li>
+                                	<p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <a><img/></a>
+                                </li>
+                            </ul>
+                            <ul class="idol_box05_div1_u">
+                            	<li></li>
+                            	<li></li>
+                            	<li></li>
+                            </ul>
+                            <div class="idol_box05_div5"></div>
+                            <div class="idol_box05_div6"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+        </div> 
+            
+            >
+   
+     		<!--centerNav待加载部分-->	
+	 <div class="contNav_loading" id="contNav_L1">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/xiaomiNOTE2.jpg"/><br/><br/>
+                <a>小米Note 2</a><br/>
+                <p>2799元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/MIX-320-220!160x110.jpg"/><br/><br/>
+                <a>小米MIX 2</a><br/>
+                <p>3499元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/xiaomi5S-320-220!160x110.jpg"/><br/><br/>
+                <a>小米5s</a><br/>
+                <p>1899元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/5spluse320_220!160x110 (2).jpg"/><br/><br/>
+                <a>小米5s Plus</a><br/>
+                <p>2299元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/mi5!160x110.jpg"/><br/><br/>
+                <a>小米手机5</a><br/>
+                <p>1599元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/maxdingbu!160x110.jpg"/><br/><br/>
+                <a>小米Max</a><br/>
+                <p>1299元起</p>
+            </li>
+        </ul>
+    </div>
+    <div class="contNav_loading" id="contNav_L2">
+    <ul>
+        	<li>
+            	<img src="../img/XiaoMi/hmn4xtb!160x110.jpg"/><br/><br/>
+                <a>红米Note 4X</a><br/>
+                <p>999元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/hongminote4!160x110.jpg"/><br/><br/>
+                <a>红米Note 4</a><br/>
+                <p>999元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/320-2202!160x110.jpg"/><br/><br/>
+                <a>红米 4</a><br/>
+                <p>799元起</p>
+            </li>
+        </ul>
+    </div>
+    <div class="contNav_loading" id="contNav_L3">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/mipad2-16!160x110 (1).jpg"/><br/><br/>
+                <a>小米平板2 16GB</a><br/>
+                <p>999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/bijiben32012.5!160x110 (1).jpg"/><br/><br/>
+                <a>小米笔记本Air 12.5"</a><br/>
+                <p>3499元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/bijiben320!160x110 (1).jpg"/><br/><br/>
+                <a>小米笔记本Air 13.3"</a><br/>
+                <p>4999元</p>
+            </li>
+        </ul>    
+        </div>
+    <div class="contNav_loading" id="contNav_L4">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/101848 (1).png"/><br/><br/>
+                <a>小米电视3s 48英寸</a><br/>
+                <p>2599元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/101855xin (1).png"/><br/><br/>
+                <a>小米电视3s 55英寸</a><br/>
+                <p>3999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/101860xin (1).png"/><br/><br/>
+                <a>小米电视3s 60英寸</a><br/>
+                <p>4799元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/65yingyuan (1).png"/><br/><br/>
+                <a>小米电视3s 65英寸</a><br/>
+                <p>6699元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/70dianshi (1).png"/><br/><br/>
+                <a>小米电视3 70英寸</a><br/>
+                <p>9999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/101865 (1).png"/><br/><br/>
+                <a>查看全部</a><br/>
+                <p style="color:#000">小米电视</p>
+            </li>
+        </ul>    
+    </div>
+    <div class="contNav_loading" id="contNav_L5">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/mihezi (1).png"/><br/><br/>
+                <a>小米盒子3s</a><br/>
+                <p>299元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/mihezi (2).png"/><br/><br/>
+                <a>小米盒子3c</a><br/>
+                <p>199元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/hezi3s!160x110 (1).jpg"/><br/><br/>
+                <a>小米盒子3 增强版</a><br/>
+                <p>399元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/hezimini (1).png"/><br/><br/>
+                <a>小米盒子mini版</a><br/>
+                <p>179元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/320x220 (1).png"/><br/><br/>
+                <a>小米家庭影院</a><br/>
+                <p>1999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/putonban!160x110 (1).jpg"/><br/><br/>
+                <a>小米家庭音响 标准版</a><br/>
+                <p>699元</p>
+            </li>
+        </ul>    
+    </div>
+    <div class="contNav_loading" id="contNav_L6">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/miwifi-3!160x110 (1).jpg"><br/><br/>
+                <a>小米路由器 3</a><br/>
+                <p>149元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/luyouqi3c!160x110 (1).jpg"/><br/><br/>
+                <a>小米路由器 3C</a><br/>
+                <p>99元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/fdq2!160x110 (1).jpg"/><br/><br/>
+                <a>小米WiFi放大器 2</a><br/>
+                <p>49元</p>
+            </li>
+        </ul>    
+    </div>
+    <div class="contNav_loading" id="contNav_L7">
+    	<ul>
+        	<li>
+            	<img src="../img/XiaoMi/scooter!160x110 (1).jpg"/><br/><br/>
+                <a>九号平衡车</a><br/>
+                <p>1999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/water2!160x110 (1).jpg"/><br/><br/>
+                <a>小米净水器</a><br/>
+                <p>1299元起</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/dianfanbao!160x110 (1).jpg"/><br/><br/>
+                <a>米家压力IH电饭煲</a><br/>
+                <p>999元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/air2!160x110 (1).jpg"/><br/><br/>
+                <a>小米空气净化器 2</a><br/>
+                <p>699元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/xiaobai!160x110 (1).jpg"/><br/><br/>
+                <a>智能摄像机</a><br/>
+                <p>399元</p>
+            </li>
+        	<li>
+            	<img src="../img/XiaoMi/shdt (1).png"/><br/><br/>
+                <a>查看全部</a><br/>
+                <p style="color:#000;">智能硬件</p>
+            </li>
+        </ul>    
+    </div>	
+    <div>
+    
+    </div>
+    
+    
+    <div class="search_hidden">
+        	<p><a><span class="search_L">小米5s Plus</span><span class="search_R">约有5件</span></a></p>
+        	<p><a><span class="search_L">小米Max</span><span class="search_R">约有8件</span></a></p>
+        	<p><a><span class="search_L">小米手机5</span><span class="search_R">约有10件</span></a></p>
+        	<p><a><span class="search_L">空气净化器2</span><span class="search_R">约有3件</span></a></p>
+        	<p><a><span class="search_L">活塞耳机</span><span class="search_R">约有3件</span></a></p>
+        	<p><a><span class="search_L">小米路由器</span><span class="search_R">约有6件</span></a></p>
+        	<p><a><span class="search_L">移动电源</span><span class="search_R">约有14件</span></a></p>
+        	<p><a><span class="search_L">运动相机</span><span class="search_R">约有11件</span></a></p>
+        	<p><a><span class="search_L">小蚁摄像机</span><span class="search_R">约有2件</span></a></p>
+        	<p><a><span class="search_L">小米体重秤</span><span class="search_R">约有1件</span></a></p>
+        	<p><a><span class="search_L">小米插线板</span><span class="search_R">约有10件</span></a></p>
+        	<p><a><span class="search_L">小米配件优惠套装</span><span class="search_R">约有23件</span></a></p>
+    </div>
+</body>
+</html>
